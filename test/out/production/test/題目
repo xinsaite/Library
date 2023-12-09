@@ -1,0 +1,60 @@
+Java高级题目
+题目描述
+你需要设计一个简单的图书管理系统。系统中有两个主要类：Book 和 Library。
+
+Book 類別的屬性包括：
+
+書名（title）
+作者（author）
+ISBN號碼（isbn）
+出版年份（publicationYear）
+庫存數量（quantityInStock）
+Library 類別應該提供以下功能：
+
+將書籍添加到圖書館。
+從圖書館借書。
+將書籍歸還到圖書館。
+顯示圖書館中所有書籍的信息，包括書名、作者、ISBN、出版年份和庫存數量。
+要求：
+
+創建 Book 類別，確保包含適當的構造函數和方法以獲取和設置屬性。
+創建 Library 類別，包含上述功能方法。
+這樣的系統可以讓使用者添加書籍、借閱書籍、歸還書籍並查看圖書館中所有書籍的信息。
+
+------------------------------------------------------------------------------------------------
+提示
+使用 ArrayList 存储图书馆中的书籍。
+使用合适的数据结构存储书籍信息。
+考虑在方法中进行适当的输入验证和错误处理。
+示例
+以下是一个简单的示例，用于演示 Library 类的使用：
+------------------------------------------------------------------------------------------------
+
+java
+Copy code
+public class Main {
+    public static void main(String[] args) {
+        Library library = new Library();
+
+        // 添加书籍
+        Book book1 = new Book("The Catcher in the Rye", "J.D. Salinger", "978-0-316-76948-0", 1951, 5);
+        Book book2 = new Book("To Kill a Mockingbird", "Harper Lee", "978-0-06-112008-4", 1960, 3);
+        library.addBook(book1);
+        library.addBook(book2);
+
+        // 显示所有书籍信息
+        System.out.println("Books in the library:");
+        library.displayBooks();
+
+        // 借阅和归还书籍
+        library.borrowBook("978-0-316-76948-0");
+        library.borrowBook("978-0-316-76948-0");  // 库存不足，应输出相应提示
+        library.returnBook("978-0-316-76948-0");
+        library.returnBook("978-0-316-76948-0");  // 库存已满，应输出相应提示
+
+        // 显示更新后的书籍信息
+        System.out.println("\nBooks in the library after borrowing and returning:");
+        library.displayBooks();
+    }
+}
+请根据以上要求实现 Book 和 Library 类，并确保程序能够正确运行。
